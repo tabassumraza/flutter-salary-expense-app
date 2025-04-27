@@ -12,7 +12,8 @@ class _SalaryScreenState extends State<SalaryScreen> {
   final TextEditingController _headController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
-  String _selectedMonth = DateFormat('yyyy-MM').format(DateTime.now()); // Default to current month
+  String _selectedMonth =
+      DateFormat('yyyy-MM').format(DateTime.now()); // Default to current month
 
   void _showAddHeadDialog(BuildContext context) {
     showDialog(
@@ -104,7 +105,9 @@ class _SalaryScreenState extends State<SalaryScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(head),
-                  Text("Total: ${totalAmount}", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green)),
+                  Text("Total: ${totalAmount}",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.green)),
                 ],
               ),
               children: [
@@ -118,11 +121,14 @@ class _SalaryScreenState extends State<SalaryScreen> {
                   items: salariesByMonth.keys.map((month) {
                     return DropdownMenuItem(
                       value: month,
-                      child: Text(DateFormat('MMMM yyyy').format(DateTime.parse("$month-01"))),
+                      child: Text(DateFormat('MMMM yyyy')
+                          .format(DateTime.parse("$month-01"))),
                     );
                   }).toList(),
                 ),
-                ...salaryProvider.filterSalariesByMonth(head, _selectedMonth).map((salary) {
+                ...salaryProvider
+                    .filterSalariesByMonth(head, _selectedMonth)
+                    .map((salary) {
                   return ListTile(
                     title: Text("${salary['description']}"),
                     subtitle: Text("Date: ${salary['date']}"),
