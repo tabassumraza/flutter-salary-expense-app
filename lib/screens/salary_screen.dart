@@ -103,12 +103,7 @@ class _SalaryScreenState extends State<SalaryScreen> {
             child: ExpansionTile(
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(head),
-                  Text("Total: ${totalAmount}",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.green)),
-                ],
+              
               ),
               children: [
                 DropdownButton<String>(
